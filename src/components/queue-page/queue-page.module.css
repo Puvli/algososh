@@ -1,0 +1,15 @@
+.page {
+  max-width: 830px;
+  display: flex;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.queue {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  gap: 16px;
+  margin: 52px 0 0 0;
+}
