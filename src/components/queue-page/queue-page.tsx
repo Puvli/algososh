@@ -20,7 +20,9 @@ export const QueuePage: React.FC = () => {
   const [inputValue, setInputValue] = useState("");
   const [queueElements, setQueueElements] =
     useState<(TDataElement | null)[]>(initQueueElements);
-  const [production, setProduction] = useState(false);
+  const [productionAdd, setProductionAdd] = useState(false);
+  const [productionDelete, setProductionDelete] = useState(false);
+  const [productionClear, setProductionClear] = useState(false);
   const [isComponentMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -35,7 +37,7 @@ export const QueuePage: React.FC = () => {
   };
 
   const handleAdd = async () => {
-    setProduction(true);
+    setProductionAdd(true);
     let tail = queue.getTailElement();
     if (tail?.value) {
       tail.value.isTail = false;
@@ -71,12 +73,12 @@ export const QueuePage: React.FC = () => {
       SHORT_DELAY_IN_MS,
       isComponentMounted
     );
-    setProduction(false);
+    setProductionAdd(false);
     setInputValue("");
   };
 
   const handleDelete = async () => {
-    setProduction(true);
+    setProductionDelete(true);
     let head = queue.getHeadElement();
     let tail = queue.getTailElement();
     if (!queue.isEmpty() && head?.value) {
@@ -108,12 +110,12 @@ export const QueuePage: React.FC = () => {
       head.value.state = ElementStates.Default;
     }
     setQueueElements([...queue.getElements()]);
-    setProduction(false);
+    setProductionDelete(false);
     setInputValue("");
   };
 
   const handleClear = async () => {
-    setProduction(true);
+    setProductionClear(true);
     queue.clear();
     await updateElements(
       setQueueElements,
@@ -121,7 +123,7 @@ export const QueuePage: React.FC = () => {
       SHORT_DELAY_IN_MS,
       isComponentMounted
     );
-    setProduction(false);
+    setProductionClear(false);
     setInputValue("");
   };
 
@@ -136,23 +138,26 @@ export const QueuePage: React.FC = () => {
         />
         <Button
           disabled={
-            production ||
+            productionAdd ||
             inputValue.length === 0 ||
             queueElements.length > maxQueueSize
           }
           text="Добавить"
           onClick={handleAdd}
+          isLoader={productionAdd}
         />
         <Button
-          disabled={production || queue.isEmpty()}
+          disabled={productionDelete || queue.isEmpty()}
           text="Удалить"
           extraClass={"mr-40"}
           onClick={handleDelete}
+          isLoader={productionDelete}
         />
         <Button
-          disabled={production || queue.isEmpty()}
+          disabled={productionClear || queue.isEmpty()}
           text="Очистить"
           onClick={handleClear}
+          isLoader={productionClear}
         />
       </div>
       <ul className={styles.queue}>

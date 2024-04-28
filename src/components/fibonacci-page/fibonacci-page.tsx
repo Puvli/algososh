@@ -77,6 +77,7 @@ export const FibonacciPage: React.FC = () => {
           maxLength={2}
           max={19}
           onChange={handleInputChange}
+          value={(inputNumber > 0) ? inputNumber : ""}
         />
         <Button
           text="Рассчитать"

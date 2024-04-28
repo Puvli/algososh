@@ -17,7 +17,9 @@ export const StackPage: React.FC = () => {
   const [stackElements, setStackElements] = useState<(TDataElement | null)[]>(
     []
   );
-  const [production, setProduction] = useState(false);
+  const [productionAdd, setProductionAdd] = useState(false);
+  const [productionDelete, setProductionDelete] = useState(false);
+  const [productionClear, setProductionClear] = useState(false);
   const [isComponentMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export const StackPage: React.FC = () => {
   };
 
   const handleAdd = async () => {
-    setProduction(true);
+    setProductionAdd(true);
     let last = stack.peak();
     if (!stack.isEmpty() && last) {
       last.isHead = false;
@@ -58,12 +60,12 @@ export const StackPage: React.FC = () => {
       SHORT_DELAY_IN_MS,
       isComponentMounted
     );
-    setProduction(false);
+    setProductionAdd(false);
     setInputValue("");
   };
 
   const handleDelete = async () => {
-    setProduction(true);
+    setProductionDelete(true);
     let last = stack.peak();
     if (!stack.isEmpty() && last) {
       last.state = ElementStates.Changing;
@@ -86,11 +88,11 @@ export const StackPage: React.FC = () => {
       SHORT_DELAY_IN_MS,
       isComponentMounted
     );
-    setProduction(false);
+    setProductionDelete(false);
   };
 
   const handleClear = async () => {
-    setProduction(true);
+    setProductionClear(true);
     stack.clear();
     await updateElements(
       setStackElements,
@@ -98,7 +100,7 @@ export const StackPage: React.FC = () => {
       SHORT_DELAY_IN_MS,
       isComponentMounted
     );
-    setProduction(false);
+    setProductionClear(false);
   };
 
   return (
@@ -112,21 +114,24 @@ export const StackPage: React.FC = () => {
         />
         <Button
           disabled={
-            production || inputValue.length === 0 || stackElements.length > 9
+            productionAdd || inputValue.length === 0 || stackElements.length > 9
           }
           text="Добавить"
           onClick={handleAdd}
+          isLoader={productionAdd}
         />
         <Button
-          disabled={production || stackElements.length === 0}
+          disabled={productionDelete || stackElements.length === 0}
           text="Удалить"
           extraClass={"mr-40"}
           onClick={handleDelete}
+          isLoader={productionDelete}
         />
         <Button
-          disabled={production || stackElements.length === 0}
+          disabled={productionClear || stackElements.length === 0}
           text="Очистить"
           onClick={handleClear}
+          isLoader={productionClear}
         />
       </div>
       <ul className={styles.stack}>
