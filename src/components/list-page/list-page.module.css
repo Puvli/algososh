@@ -1,0 +1,53 @@
+.page {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  
+  .inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
+  .input {
+    max-width: 200px;
+  }
+  
+  .small_button {
+    width: 180px;
+  }
+  
+  .large_button {
+    width: 372px;
+  }
+  
+  .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 120px;
+    padding: 0;
+  }
+  
+  .circle {
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .add {
+    position: absolute;
+    top: -64px;
+    left: 24px;
+  }
+  
+  .delete {
+    position: absolute;
+    top: 120px;
+    left: 24px;
+  }

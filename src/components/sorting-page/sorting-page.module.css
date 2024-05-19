@@ -1,0 +1,39 @@
+.page {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
+.bars {
+  width: 940px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  column-gap: 16px;
+  row-gap: 48px;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+.radio_buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.buttons {
+  width: 100%;
+  max-width: 730px;
+  display: flex;
+  justify-content: start;
+}
+
+.button_large {
+  min-width: 210px;
+}

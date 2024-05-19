@@ -1,0 +1,17 @@
+.form {
+  display: grid;
+  grid-template-columns: 377px 1fr;
+  gap: 12px;
+  max-width: 565px;
+  margin: 0 auto;
+}
+
+.letters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style-type: none;
+  padding: 120px 0 0;
+  margin: 0;
+}
