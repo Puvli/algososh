@@ -6,6 +6,7 @@ import styles from "./solution-layout.module.css";
 interface SolutionLayoutProps {
   title: string;
   extraClass?: string;
+  children?: any;
 }
 
 export const SolutionLayout: React.FC<SolutionLayoutProps> = ({

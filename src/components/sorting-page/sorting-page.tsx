@@ -98,6 +98,12 @@ export const getBubbleSortSteps = (
 ) => {
   const arr = arrToSort ? [...arrToSort] : [];
   const steps: (TDataElement | null)[][] = [];
+
+  if(arr.length === 0) {
+    return [];
+  }
+
+
   if (isAscending) {
     for (let i = 0; i < arr.length; i++) {
       for (let j = 0; j < arr.length - i - 1; j++) {

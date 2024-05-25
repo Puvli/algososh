@@ -111,6 +111,7 @@ export const StackPage: React.FC = () => {
           maxLength={4}
           isLimitText={true}
           onChange={handleInputChange}
+          data-testid="input"
         />
         <Button
           disabled={
@@ -119,6 +120,7 @@ export const StackPage: React.FC = () => {
           text="Добавить"
           onClick={handleAdd}
           isLoader={productionAdd}
+          data-testid="add"
         />
         <Button
           disabled={productionDelete || stackElements.length === 0}
@@ -126,15 +128,17 @@ export const StackPage: React.FC = () => {
           extraClass={"mr-40"}
           onClick={handleDelete}
           isLoader={productionDelete}
+          data-testid="delete"
         />
         <Button
           disabled={productionClear || stackElements.length === 0}
           text="Очистить"
           onClick={handleClear}
           isLoader={productionClear}
+          data-testid="clear"
         />
       </div>
-      <ul className={styles.stack}>
+      <ul className={styles.stack} data-testid="stack-elements">
         {stackElements.map((element: TDataElement | null, index: number) => (
           <Circle
             key={index}
