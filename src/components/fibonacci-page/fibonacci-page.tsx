@@ -78,6 +78,7 @@ export const FibonacciPage: React.FC = () => {
           max={19}
           onChange={handleInputChange}
           value={(inputNumber > 0) ? inputNumber : ""}
+          data-testid="input"
         />
         <Button
           text="Рассчитать"
@@ -90,6 +91,7 @@ export const FibonacciPage: React.FC = () => {
               : true
           }
           isLoader={production}
+          data-testid="button"
         />
       </form>
       <ul className={styles.numbers}>

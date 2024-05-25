@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Проверяем button Рендер заблокированной кнопки: Рендер заблокированной кнопки 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined false "
+  disabled={true}
+  type="button"
+>
+  <p
+    className="text undefined"
+  />
+</button>
+`;
+
+exports[`Проверяем button Рендер кнопки без текстом: Рендер кнопки без текстом 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined false "
+  type="button"
+>
+  <p
+    className="text undefined"
+  >
+    
+  </p>
+</button>
+`;
+
+exports[`Проверяем button Рендер кнопки с загрузкой: Рендер кнопки с загрузкой 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined loader "
+  disabled={true}
+  type="button"
+>
+  <img
+    alt="Загрузка."
+    className="loader_icon"
+    src="loader.svg"
+  />
+</button>
+`;
+
+exports[`Проверяем button Рендер кнопки с текстом: Рендер кнопки с текстом 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined false "
+  type="button"
+>
+  <p
+    className="text undefined"
+  >
+    Развернуть
+  </p>
+</button>
+`;
+
+exports[`Рендер заблокированной кнопки: Рендер заблокированной кнопки 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined false "
+  disabled={true}
+  type="button"
+>
+  <p
+    className="text undefined"
+  />
+</button>
+`;
+
+exports[`Рендер кнопки без текстом: Рендер кнопки без текстом 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined false "
+  type="button"
+>
+  <p
+    className="text undefined"
+  >
+    
+  </p>
+</button>
+`;
+
+exports[`Рендер кнопки с загрузкой: Рендер кнопки с загрузкой 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined loader "
+  disabled={true}
+  type="button"
+>
+  <img
+    alt="Загрузка."
+    className="loader_icon"
+    src="loader.svg"
+  />
+</button>
+`;
+
+exports[`Рендер кнопки с индикацией загрузки: Рендер кнопки с индикацией загрузки 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined loader "
+  disabled={true}
+  type="button"
+>
+  <img
+    alt="Загрузка."
+    className="loader_icon"
+    src="loader.svg"
+  />
+</button>
+`;
+
+exports[`Рендер кнопки с текстом: Рендер кнопки с текстом 1`] = `
+<button
+  className="text text_type_button text_color_primary button undefined false "
+  type="button"
+>
+  <p
+    className="text undefined"
+  >
+    Развернуть
+  </p>
+</button>
+`;

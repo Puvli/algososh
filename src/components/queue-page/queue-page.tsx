@@ -135,6 +135,7 @@ export const QueuePage: React.FC = () => {
           maxLength={4}
           isLimitText={true}
           onChange={handleInputChange}
+          data-testid="input"
         />
         <Button
           disabled={
@@ -145,6 +146,7 @@ export const QueuePage: React.FC = () => {
           text="Добавить"
           onClick={handleAdd}
           isLoader={productionAdd}
+          data-testid="add"
         />
         <Button
           disabled={productionDelete || queue.isEmpty()}
@@ -152,15 +154,17 @@ export const QueuePage: React.FC = () => {
           extraClass={"mr-40"}
           onClick={handleDelete}
           isLoader={productionDelete}
+          data-testid="delete"
         />
         <Button
           disabled={productionClear || queue.isEmpty()}
           text="Очистить"
           onClick={handleClear}
           isLoader={productionClear}
+          data-testid="clear"
         />
       </div>
-      <ul className={styles.queue}>
+      <ul className={styles.queue} data-testid="queue-elements">
         {queueElements.map((element: TDataElement | null, index: number) => (
           <Circle
             key={index}

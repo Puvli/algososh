@@ -299,6 +299,7 @@ export const ListPage: React.FC = () => {
             disabled={production}
             onChange={handleInputValueChange}
             isLimitText={true}
+            data-testid="valueInput"
           />
           <Button
             text="Добавить в head"
@@ -306,6 +307,7 @@ export const ListPage: React.FC = () => {
             disabled={(production && !isAddingHead) || inputValue.length === 0}
             extraClass={styles.small_button}
             isLoader={isAddingHead}
+            data-testid="addToHead"
           />
           <Button
             text="Добавить в tail"
@@ -313,6 +315,7 @@ export const ListPage: React.FC = () => {
             disabled={(production && !isAddingTail) || inputValue.length === 0}
             extraClass={styles.small_button}
             isLoader={isAddingTail}
+            data-testid="addToTail"
           />
           <Button
             text="Удалить из head"
@@ -320,6 +323,7 @@ export const ListPage: React.FC = () => {
             disabled={list.isEmpty() || list.getSize() < 2}
             extraClass={styles.small_button}
             isLoader={isDeletingHead}
+            data-testid="deleteFromHead"
           />
           <Button
             text="Удалить из tail"
@@ -327,6 +331,7 @@ export const ListPage: React.FC = () => {
             disabled={list.isEmpty() || list.getSize() < 2}
             extraClass={styles.small_button}
             isLoader={isDeletingTail}
+            data-testid="deleteFromTail"
           />
         </div>
         <div className={styles.inputs}>
@@ -337,6 +342,7 @@ export const ListPage: React.FC = () => {
             onChange={handleInputIndexChange}
             disabled={production}
             placeholder="Введите индекс"
+            data-testid="indexInput"
           />
           <Button
             text="Добавить по индексу"
@@ -348,6 +354,7 @@ export const ListPage: React.FC = () => {
               inputValue.length === 0
             }
             extraClass={styles.large_button}
+            data-testid="addByIndex"
           />
           <Button
             onClick={handleDeleteByIndex}
@@ -357,10 +364,11 @@ export const ListPage: React.FC = () => {
             }
             text="Удалить по индексу"
             extraClass={styles.large_button}
+            data-testid="deleteByIndex"
           />
         </div>
       </div>
-      <ul className={styles.list}>
+      <ul className={styles.list} data-testid="list-elements">
         {listElements.map((element, index) => (
           <li className={styles.circle} key={index}>
             {(isAddingHead || isAddingTail || isAddingByIndex) &&

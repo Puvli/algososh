@@ -10,11 +10,15 @@ import styles from "./string.module.css";
 import { TDataElement } from "../../types/types";
 import { swap } from "../../utils/utils";
 
-export const getIterates = (sourceString: string): string[][] => {
+export const getIterates = (sourceString: string): string[][] | string => {
   const iterates: string[][] = [];
   const letters = sourceString.split("");
   let start = 0;
   let end = letters.length - 1;
+
+  if (sourceString.length === 0) {
+    return sourceString;
+  }
 
   while (start <= end) {
     if (end === start) {
@@ -99,15 +103,17 @@ export const StringComponent: FC = () => {
           isLimitText={true}
           maxLength={11}
           onChange={handleInputChange}
+          data-testid="input"
         />
         <Button
           text="Развернуть"
           type="submit"
           isLoader={inProgress}
           disabled={!inputString}
+          data-testid="button"
         />
       </form>
-      <ul className={styles.letters}>
+      <ul className={styles.letters} data-testid="result">
         {letters.map((letter, index) => (
           <Circle
             state={letter?.state}
